@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TikTok callback – CAP ACTU Publisher</title><link rel="icon" href="../../assets/logo.png"><link rel="stylesheet" href="../../assets/style.css"></head><body>
+<header><img src="../../assets/logo.png" alt="CAP ACTU logo"><div class="brand">CAP <span>ACTU</span> Publisher</div><nav><a href="../../">Home</a><a href="../../terms.html">Terms of Service</a><a href="../../privacy.html">Privacy Policy</a></nav></header>
+<main>
+<h1>TikTok authorization / Autorisation TikTok</h1>
+<div id="ok" class="lang" style="display:none">
+<p><strong>✅ Authorization code received.</strong> Copy it into CAP ACTU Publisher (valid a few minutes, single use).<br><strong>Code d’autorisation reçu.</strong> Copiez-le dans CAP ACTU Publisher (valable quelques minutes, usage unique).</p>
+<span class="code" id="code"></span>
+<button id="copy" type="button">Copy / Copier</button> <span id="copied" class="small"></span>
+<p class="small">state: <span id="state"></span><br>scopes: <span id="scopes"></span></p>
+<p class="small">Full callback URL (for the box helper) / URL complète :</p>
+<span class="code" id="full" style="font-size:12px"></span>
+</div>
+<div id="err" class="lang" style="display:none"><p><strong>❌ Authorization failed / Autorisation refusée</strong></p><span class="code" id="errtxt"></span></div>
+<div id="none" class="lang" style="display:none"><p>This page receives the TikTok Login Kit redirect. No code in the URL. / Cette page reçoit la redirection TikTok Login Kit. Aucun code dans l’URL.</p></div>
+<script>
+(function(){var p=new URLSearchParams(location.search);var c=p.get('code'),e=p.get('error');
+function t(id,v){document.getElementById(id).textContent=v||'';}
+if(c){document.getElementById('ok').style.display='block';t('code',c);t('state',p.get('state'));t('scopes',p.get('scopes'));t('full',location.href);
+document.getElementById('copy').onclick=function(){navigator.clipboard.writeText(c).then(function(){t('copied','Copied / Copié ✔');});};}
+else if(e){document.getElementById('err').style.display='block';t('errtxt',e+' — '+(p.get('error_description')||''));}
+else{document.getElementById('none').style.display='block';}
+if(history.replaceState){} })();
+</script>
+</main>
+<footer>© 2026 CAP ACTU · <a href="../../terms.html">Terms of Service / Conditions d’utilisation</a> · <a href="../../privacy.html">Privacy Policy / Confidentialité</a> · TikTok <a href="https://www.tiktok.com/@capactufrance">@capactufrance</a> · YouTube <a href="https://www.youtube.com/@CapActufrance">@CapActufrance</a></footer>
+</body></html>
